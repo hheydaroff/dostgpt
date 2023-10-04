@@ -2,3 +2,5 @@ config.ini
 .DS_Store
 .vscode/
 .vscode/*
+dostgpt_env/
+__pycache__/
