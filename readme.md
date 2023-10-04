@@ -16,7 +16,7 @@ This is a Command-Line Interface (CLI) application for a chatbot that utilizes t
    cd dostgpt
    ```
 
-3. Obtain an OpenAI API key and add it to the `config.ini` file. You can create an OpenAI account and generate an API key from their website.
+3. Obtain an OpenAI API key and add it to the `config.ini` file. If `config.ini` does not exist, create one in the same directory. You can create an OpenAI account and generate an API key from their website.
 
    ```ini
    [OpenAI]
