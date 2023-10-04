@@ -7,22 +7,16 @@ This is a Command-Line Interface (CLI) application for a chatbot that utilizes t
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/chatbot-cli.git
+   git clone https://github.com/hheydaroff/dostgpt.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd chatbot-cli
+   cd dostgpt
    ```
 
-3. Install the required dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Obtain an OpenAI API key and add it to the `config.ini` file. You can create an OpenAI account and generate an API key from their website.
+3. Obtain an OpenAI API key and add it to the `config.ini` file. You can create an OpenAI account and generate an API key from their website.
 
    ```ini
    [OpenAI]
