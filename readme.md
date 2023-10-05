@@ -32,6 +32,8 @@ To start the chatbot CLI, run the following command:
 ```
 
 The chatbot will ask for user input and generate a response based on the provided prompt. It will continue to interact with the user until the user chooses to exit.
+Whenever you say `forget`, the history of the discussions is reset. Whenever you say `exit`, it shuts down the app. 
+After the commands `forget` and `exit`, the history of the conversation is stored in a txt file at `'history/'` folder.
 
 ## Configuration
 
