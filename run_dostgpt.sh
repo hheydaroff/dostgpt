@@ -18,7 +18,7 @@ if ! python -c "import openai" &> /dev/null; then
 fi
 
 # Run the Python script
-python3 -m dostgpt
+python3 -m main
 
 # Deactivate the virtual environment
 deactivate
