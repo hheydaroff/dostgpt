@@ -4,3 +4,5 @@ config.ini
 .vscode/*
 dostgpt_env/
 __pycache__/
+history/
+history/*
