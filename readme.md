@@ -53,6 +53,9 @@ To start the chatbot CLI, run the following command:
 
 The chatbot will ask for user input and generate a response based on the provided prompt. It will continue to interact with the user until the user chooses to exit.
 
+### Limitation
+So that user can enter multiline text, every time to submit the input, user should press `Enter` at the new empty line.
+
 ### Commands
 
 - **forget**: Clears the conversation history and starts a new conversation.
