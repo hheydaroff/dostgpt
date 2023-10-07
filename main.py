@@ -10,12 +10,16 @@ conversation = []
 
 # Ask user for custom prompt initially
 engine_choice = input("Would you like to talk with OpenAI (openai) or Perplexity (perplexity) : ")
+if engine_choice == "perplexity":
+    perplexity_model_entry = input("Would you like to talk with llama-2(llama), codellama(codellama), or mistral(mistral): ")
 print("Enter prompt for how the DostGPT should respond. Press CTRL+D when done:")
 
 custom_prompt = sys.stdin.read()
 
 while True:
-    user_input = input("You: ")
+    print("Write your message. Press CTRL+D when done:")
+
+    user_input = sys.stdin.read()
 
     if user_input.lower() == "exit":
         history.save_chat_history(conversation)
@@ -34,6 +38,8 @@ while True:
         conversation = []
         print("DostGPT: Conversation history cleared.")
         engine_choice = input("Would you like to talk with OpenAI (openai) or Perplexity (perplexity) : ")
+        if engine_choice == "perplexity":
+            perplexity_model_entry = input("Would you like to talk with llama-2(llama), codellama(codellama), or mistral(mistral): ")
         print("Enter prompt for how the DostGPT should respond. Press CTRL+D when done:")
         custom_prompt = sys.stdin.read()
         continue
@@ -43,7 +49,16 @@ while True:
     if engine_choice == "openai":
         reply = openai_engine.chat_with_gpt3(conversation, custom_prompt)
     elif engine_choice == "perplexity":
-        reply = perplexity_engine.chat_with_perplexity(conversation, custom_prompt)
+        if perplexity_model_entry == "llama":
+            perplexity_model = "llama-2-70b-chat"
+        elif perplexity_model_entry == "llamacode":
+            perplexity_model = "codellama-34b-instruct"
+        elif perplexity_model_entry == "mistral":
+            perplexity_model = "mistral-7b-instruct"
+             
+
+        
+        reply = perplexity_engine.chat_with_perplexity(conversation, custom_prompt, model = perplexity_model)
         
         
 

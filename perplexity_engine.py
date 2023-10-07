@@ -5,7 +5,7 @@ import requests
 perplexity_api_key = config.load_perplexity_api_key()
 
 
-def chat_with_perplexity(messages, custom_prompt):
+def chat_with_perplexity(messages, custom_prompt, model = 'llama-2-70b-chat'):
 
 
     system_message = custom_prompt + "\n" + "\n".join([f"{msg['role']}: {msg['content']}" for msg in messages])
@@ -14,7 +14,7 @@ def chat_with_perplexity(messages, custom_prompt):
     }
 
     payload = {
-        "model": "llama-2-70b-chat",
+        "model": model,
         
         "messages": [{"role": "system", "content": system_message}] + messages
     }
