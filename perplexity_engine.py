@@ -9,17 +9,22 @@ def chat_with_perplexity(messages, custom_prompt, model = 'llama-2-70b-chat'):
 
 
     system_message = custom_prompt + "\n" + "\n".join([f"{msg['role']}: {msg['content']}" for msg in messages])
-    headers = {
-        "Authorization": f"Bearer {perplexity_api_key}"
-    }
+    
+    try: 
+        headers = {
+            "Authorization": f"Bearer {perplexity_api_key}"
+        }
 
-    payload = {
-        "model": model,
-        
-        "messages": [{"role": "system", "content": system_message}] + messages
-    }
+        payload = {
+            "model": model,
+            
+            "messages": [{"role": "system", "content": system_message}] + messages
+        }
 
-    response = requests.post("https://api.perplexity.ai/chat/completions", 
-                            headers=headers, json=payload)
+        response = requests.post("https://api.perplexity.ai/chat/completions", 
+                                headers=headers, json=payload)
 
-    return response.json()["choices"][0]["message"]["content"]
+        return response.json()["choices"][0]["message"]["content"]
+    except Exception as e:
+        print(f"An error occurred during the Perplexity API call: {str(e)}")
+        return "An error occurred while generating a response."
