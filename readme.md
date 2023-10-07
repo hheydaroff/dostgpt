@@ -1,6 +1,6 @@
 # DostGPT CLI Chatbot
 
-This is a Command-Line Interface (CLI) application for a chatbot that utilizes the OpenAI GPT model. The chatbot is designed to generate human-like responses based on the user input.
+This is a Command-Line Interface (CLI) application for a chatbot that utilizes the OpenAI GPT model. The chatbot is designed to generate human-like responses based on user input.
 
 ## Installation
 
@@ -16,11 +16,31 @@ This is a Command-Line Interface (CLI) application for a chatbot that utilizes t
    cd dostgpt
    ```
 
-3. Obtain an OpenAI API key and add it to the `config.ini` file. If `config.ini` does not exist, create one in the same directory. You can create an OpenAI account and generate an API key from their website.
+3. Obtain an OpenAI API key and add it to the `config.ini` file. If `config.ini` does not exist, create one in the same directory. You can create an OpenAI account and generate an API key from their website. Also mention which models you want to use.
 
-   ```ini
-   [OpenAI]
-   api_key = YOUR_API_KEY
+```ini
+[OpenAICredentials]
+API_KEY = xxxxxxxxxxxxx
+
+[PerplexityCredentials]
+API_KEY = xxxxxxxxxxxxx
+
+[PerplexityModels]
+llama = llama-2-70b-chat
+codellama = codellama-34b-instruct
+mistral = mistral-7b-instruct
+
+[OpenAIModels]
+gpt35turbo = gpt-3.5-turbo
+gpt35turbo16k = gpt-3.5-turbo-16k
+```
+
+4. Ensure you have Python 3 installed on your machine.
+
+5. Install the required Python dependencies using pip:
+
+   ```bash
+   pip install -r requirements.txt
    ```
 
 ## Usage
@@ -32,16 +52,39 @@ To start the chatbot CLI, run the following command:
 ```
 
 The chatbot will ask for user input and generate a response based on the provided prompt. It will continue to interact with the user until the user chooses to exit.
-Whenever you say `forget`, the history of the discussions is reset. Whenever you say `exit`, it shuts down the app. 
-After the commands `forget` and `exit`, the history of the conversation is stored in a txt file at `'history/'` folder.
+
+### Limitation
+So that user can enter multiline text, every time to submit the input, user should press `Enter` at the new empty line.
+
+### Commands
+
+- **forget**: Clears the conversation history and starts a new conversation.
+- **exit**: Shuts down the application gracefully, saving the conversation history to a text file in the 'history/' folder.
+- **change engine**: Asks again which engine and models you want to use.
 
 ## Configuration
 
 The `config.ini` file contains the configuration settings for the chatbot CLI app. You can modify the following options:
+```
+[OpenAICredentials]
+API_KEY = xxxxxxxxxxxxx
 
-- `api_key`: Your OpenAI API key. Make sure to keep this key secure and do not share it publicly.
+[PerplexityCredentials]
+API_KEY = xxxxxxxxxxxxx
 
-You can also change the LLM model of OpenAI inside the `dostgpt.py` file.
+[PerplexityModels]
+llama = llama-2-70b-chat
+codellama = codellama-34b-instruct
+mistral = mistral-7b-instruct
+
+[OpenAIModels]
+gpt35turbo = gpt-3.5-turbo
+gpt35turbo16k = gpt-3.5-turbo-16k
+```
+
+## History
+
+The history of the chatbot's conversation is automatically saved to a text file in the 'history/' folder. You can review past conversations there.
 
 ## License
 
