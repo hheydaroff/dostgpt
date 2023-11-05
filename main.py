@@ -1,7 +1,7 @@
 # main.py
 
 import utils
-import history
+
 
 # Introduction and guidelines for users
 print("Welcome to DostGPT!")
