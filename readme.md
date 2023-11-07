@@ -31,7 +31,7 @@ codellama = codellama-34b-instruct
 mistral = mistral-7b-instruct
 
 [OpenAIModels]
-gpt35turbo = gpt-3.5-turbo
+gpt35turbo = gpt-3.5-turbo-1106
 gpt35turbo16k = gpt-3.5-turbo-16k
 ```
 
